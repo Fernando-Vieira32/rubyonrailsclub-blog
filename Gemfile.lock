@@ -97,6 +97,8 @@ GEM
     erubi (1.13.1)
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
+    friendly_id (5.5.1)
+      activerecord (>= 4.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.7)
@@ -278,6 +280,7 @@ DEPENDENCIES
   bootsnap
   debug
   faker
+  friendly_id (~> 5.5.0)
   importmap-rails
   jbuilder
   pg (~> 1.1)
