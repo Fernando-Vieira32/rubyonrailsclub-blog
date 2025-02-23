@@ -1,5 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
+<h1><%= "Olá #{current_admin.email}" %></h1>
+
+<%= link_to 'Sair', destroy_admin_session_path, data: { turbo_method: :delete } %>
+
 <h1>Articles</h1>
 
 <div id="articles">
