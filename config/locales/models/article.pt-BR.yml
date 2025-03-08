@@ -5,8 +5,9 @@ pt-BR:
     attributes:
       article:
         id: Identificador
-        created_at: Criado em
-        updated_at: Atualizado em
+        cover_image: Imagem de capa
         title: Título
         body: Corpo
         slug: Slug
+        created_at: Criado em
+        updated_at: Atualizado em

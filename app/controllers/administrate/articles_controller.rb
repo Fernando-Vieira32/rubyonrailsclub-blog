@@ -27,7 +27,7 @@ module Administrate
 
       respond_to do |format|
         if @article.save
-          format.html { redirect_to @article, notice: 'Article was successfully created.' }
+          format.html { redirect_to [:administrate, @article], notice: 'Article was successfully created.' }
           format.json { render :show, status: :created, location: @article }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ module Administrate
     def update
       respond_to do |format|
         if @article.update(article_params)
-          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+          format.html { redirect_to [:administrate, @article], notice: 'Article was successfully updated.' }
           format.json { render :show, status: :ok, location: @article }
         else
           format.html { render :edit, status: :unprocessable_entity }
@@ -70,7 +70,7 @@ module Administrate
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :cover_image)
     end
   end
 end
