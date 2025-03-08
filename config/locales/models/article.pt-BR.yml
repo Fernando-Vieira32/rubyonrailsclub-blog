@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      article: Artigo
+    attributes:
+      article:
+        id: Identificador
+        created_at: Criado em
+        updated_at: Atualizado em
+        title: Título
+        body: Corpo
+        slug: Slug
