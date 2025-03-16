@@ -4,6 +4,7 @@ module Administrate
   class ArticlesController < ApplicationController
     before_action :authenticate_admin!
     before_action :set_article, only: %i[destroy_cover_image show edit update destroy]
+    layout 'administrate'
 
     # GET /articles or /articles.json
     def index
