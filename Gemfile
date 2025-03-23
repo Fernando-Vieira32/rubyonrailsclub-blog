@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby '3.3.4'
 gem 'bootsnap', require: false
 gem 'friendly_id', '~> 5.5.0'
+gem 'image_processing', '>= 1.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'
@@ -14,6 +15,7 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
+gem 'sass-rails'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]

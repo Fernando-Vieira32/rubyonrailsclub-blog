@@ -3,7 +3,8 @@
 module Administrate
   class ArticlesController < ApplicationController
     before_action :authenticate_admin!
-    before_action :set_article, only: %i[show edit update destroy]
+    before_action :set_article, only: %i[destroy_cover_image show edit update destroy]
+    layout 'administrate'
 
     # GET /articles or /articles.json
     def index
@@ -27,7 +28,7 @@ module Administrate
 
       respond_to do |format|
         if @article.save
-          format.html { redirect_to @article, notice: 'Article was successfully created.' }
+          format.html { redirect_to [:administrate, @article], notice: 'Article was successfully created.' }
           format.json { render :show, status: :created, location: @article }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +41,7 @@ module Administrate
     def update
       respond_to do |format|
         if @article.update(article_params)
-          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+          format.html { redirect_to [:administrate, @article], notice: 'Article was successfully updated.' }
           format.json { render :show, status: :ok, location: @article }
         else
           format.html { render :edit, status: :unprocessable_entity }
@@ -61,6 +62,13 @@ module Administrate
       end
     end
 
+    def destroy_cover_image
+      @article.cover_image.purge
+      respond_to do |format|
+        format.turbo_stream { render(turbo_stream: turbo_stream.remove(@article)) }
+      end
+    end
+
     private
 
     # Use callbacks to share common setup or constraints between actions.
@@ -70,7 +78,7 @@ module Administrate
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :cover_image)
     end
   end
 end
