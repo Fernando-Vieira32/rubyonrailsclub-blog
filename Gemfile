@@ -11,11 +11,11 @@ gem 'jbuilder'
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.5', '>= 7.1.5.1'
+gem 'sass-rails'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
-gem 'sass-rails'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
