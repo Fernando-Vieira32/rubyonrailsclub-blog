@@ -27,12 +27,26 @@
     <%= render partial: 'layouts/shared/administrate/side_menu' %>
 
     <main class="admin-main-content">
-    <%= yield %>
-
+      <%= yield %>
     </main>
 
     <%= javascript_include_tag 'admin', "data-turbo-track": "reload" %>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+        <script>
+          <% if notice %>
+            Toastify({
+              text: "<%= notice %>",
+              className: "info",
+              style: {
+                background: "green",
+              },
+            duration: 3000,
+
+            }).showToast();
+          <% end %>
+        </script>
+
   </body>
 </html>
 

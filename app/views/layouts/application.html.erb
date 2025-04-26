@@ -35,5 +35,20 @@
     <%= javascript_include_tag 'posts-grid.js', "data-turbo-track": "reload" %>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
+     <script>
+      <% if notice %>
+        Toastify({
+          text: "<%= notice %>",
+          className: "info",
+          style: {
+            background: "green",
+          },
+        duration: 3000,
+
+        }).showToast();
+      <% end %>
+    </script>
+
+
   </body>
 </html>
