@@ -18,6 +18,7 @@
     rel="stylesheet">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <%= javascript_importmap_tags %>
   </head>
 
@@ -26,11 +27,25 @@
     <%= render partial: 'layouts/shared/administrate/side_menu' %>
 
     <main class="admin-main-content">
-    <%= yield %>
-
+      <%= yield %>
     </main>
 
     <%= javascript_include_tag 'admin', "data-turbo-track": "reload" %>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+        <script>
+          <% if notice %>
+            Toastify({
+              text: "<%= notice %>",
+              className: "info",
+              style: {
+                background: "green",
+              },
+            duration: 3000,
+
+            }).showToast();
+          <% end %>
+        </script>
 
   </body>
 </html>
