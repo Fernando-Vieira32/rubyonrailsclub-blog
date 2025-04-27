@@ -15,7 +15,7 @@
 		</div>
 
     <div>
-      <%= form.label :cover_image, style: "display: block" %>
+      <%= form.label :cover_image, class: 'label-input-file', style: "display: block" %>
       <%= form.file_field :cover_image %>
       <div id=<%= dom_id(article) %>>
         <%= image_tag article.cover_image.variant(:cover) if article.cover_image.attached? %>
