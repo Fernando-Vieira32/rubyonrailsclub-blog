@@ -7,7 +7,7 @@ module Administrate
     layout 'administrate'
 
     def index
-      @articles = Article.all
+      @articles = Article.includes(:category).all
     end
 
     def show; end
