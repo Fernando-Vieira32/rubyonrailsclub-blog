@@ -7,7 +7,7 @@ module Administrate
     layout 'administrate'
 
     def index
-      @articles = Article.all
+      @articles = Article.includes(:category).all
     end
 
     def show; end
@@ -69,7 +69,7 @@ module Administrate
     end
 
     def article_params
-      params.require(:article).permit(:title, :body, :cover_image)
+      params.require(:article).permit(:title, :body, :cover_image, :category_id)
     end
   end
 end

@@ -14,6 +14,14 @@
       </div>
 		</div>
 
+
+    <div class="input-row">
+      <div class="input-container">
+        <%= form.label :category_id, class: 'label' %>
+        <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name, article.category.id ), {}, {class: 'select',  disabled:  params[:action] == 'show'} %>
+      </div>
+    </div>
+
     <div>
       <%= form.label :cover_image, class: 'label-input-file', style: "display: block" %>
       <%= form.file_field :cover_image  if  params[:action] != 'show' %>
