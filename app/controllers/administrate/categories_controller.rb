@@ -43,10 +43,15 @@ module Administrate
     end
 
     def destroy
-      @category.destroy!
       respond_to do |format|
         format.html do
-          redirect_to administrate_categories_path, status: :see_other, notice: 'Categoria excluído com sucesso.'
+          if @category.articles.empty?
+            @category.destroy!
+            redirect_to administrate_categories_path, status: :see_other, notice: 'Categoria excluído com sucesso.'
+          else
+            redirect_to administrate_categories_path, status: :see_other,
+                                                      alert: 'Não foi possível excluir a categoria, categoria tem artigos associados.'
+          end
         end
         format.json { head :no_content }
       end
