@@ -11,10 +11,11 @@
 #   end
 
 
-admins = ['admin@admin.com', 'admin2@admin.com']
+admins = {'admin@admin.com' => 'administrador',
+           'admin2@admin.com' => 'Teste'}
 
-admins.each do |email|
+admins.each do |email, name|
   next if Admin.find_by(email: email)
 
-  Admin.create!(email: , password: ENV['DEFAULT_PASSWORD'], password_confirmation: ENV['DEFAULT_PASSWORD'])
+  Admin.create!(email: ,name:,  password: ENV['DEFAULT_PASSWORD'], password_confirmation: ENV['DEFAULT_PASSWORD'])
 end
