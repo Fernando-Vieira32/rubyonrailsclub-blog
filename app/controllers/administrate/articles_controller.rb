@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 module Administrate
-  class ArticlesController < ApplicationController
-    before_action :authenticate_admin!
+  class ArticlesController < AdministrateController
     before_action :set_article, only: %i[destroy_cover_image show edit update destroy]
-    layout 'administrate'
+    before_action :set_categories, only: %i[show edit new]
 
     def index
       @articles = Article.includes(:category).all
@@ -63,6 +62,10 @@ module Administrate
     end
 
     private
+
+    def set_categories
+      @categories = Category.all
+    end
 
     def set_article
       @article = Article.friendly.find(params[:id])
