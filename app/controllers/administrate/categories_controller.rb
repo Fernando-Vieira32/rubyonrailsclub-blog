@@ -44,11 +44,12 @@ module Administrate
 
     def destroy
       @category.destroy!
-      #      respond_to do |format|
-      format.html do
-        redirect_to administrate_categoriess_path, status: :see_other, notice: 'Categoria excluído com sucesso.'
+      respond_to do |format|
+        format.html do
+          redirect_to administrate_categories_path, status: :see_other, notice: 'Categoria excluído com sucesso.'
+        end
+        format.json { head :no_content }
       end
-      format.json { head :no_content }
     end
 
     private
