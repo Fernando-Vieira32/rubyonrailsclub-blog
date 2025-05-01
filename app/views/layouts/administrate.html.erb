@@ -45,6 +45,18 @@
 
             }).showToast();
           <% end %>
+
+          <% if alert %>
+            Toastify({
+              text: "<%= alert %>",
+              className: "info",
+              style: {
+                background: "red",
+              },
+            duration: 3000,
+
+            }).showToast();
+          <% end %>
         </script>
 
   </body>
