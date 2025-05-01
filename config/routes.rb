@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :admins
   get 'welcome/index'
 
+  resources :articles, only: %i[show]
+
   namespace :administrate do
     get '/' => 'dashboards#index'
 
