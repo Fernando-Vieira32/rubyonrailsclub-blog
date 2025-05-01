@@ -37,8 +37,8 @@ namespace :dev do
         body: Faker::Lorem.paragraph(sentence_count: rand(100..200)),
         category: Category.all.sample
       )
-      image_id = rand(1..2)
-      article.cover_image.attach(io: File.open(Rails.root.join("lib/tasks/images/article_#{image_id}.jpg")),
+      image_id = rand(1..5)
+      article.cover_image.attach(io: File.open(Rails.root.join("lib/tasks/images/full-hd/0#{image_id}.jpg")),
                                  filename: "article_#{image_id}.jpg", content_type: 'image/jpg')
     end
   end
