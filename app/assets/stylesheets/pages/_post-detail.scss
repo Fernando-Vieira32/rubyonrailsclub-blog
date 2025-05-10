@@ -172,6 +172,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    padding: 2px;
     gap: 24px;
 
     @include bp-medium() {
